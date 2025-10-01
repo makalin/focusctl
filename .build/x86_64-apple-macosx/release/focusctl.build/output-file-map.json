@@ -1,0 +1,25 @@
+{
+  "": {
+    "dependencies": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/focusctl.d",
+    "object": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/focusctl.o",
+    "swift-dependencies": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/master.swiftdeps"
+  },
+  "/Users/makalin/Public/htdocs/focusctl/Sources/focusctl/FocusManager.swift": {
+    "object": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/FocusManager.swift.o",
+    "swiftmodule": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/FocusManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/FocusManager.swiftdeps",
+    "diagnostics": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/FocusManager.dia"
+  },
+  "/Users/makalin/Public/htdocs/focusctl/Sources/focusctl/ShortcutsAction.swift": {
+    "object": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/ShortcutsAction.swift.o",
+    "swiftmodule": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/ShortcutsAction~partial.swiftmodule",
+    "swift-dependencies": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/ShortcutsAction.swiftdeps",
+    "diagnostics": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/ShortcutsAction.dia"
+  },
+  "/Users/makalin/Public/htdocs/focusctl/Sources/focusctl/main.swift": {
+    "object": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/main.swift.o",
+    "swiftmodule": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/main.swiftdeps",
+    "diagnostics": "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/main.dia"
+  }
+}

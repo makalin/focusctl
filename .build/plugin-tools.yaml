@@ -1,0 +1,66 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "focusctl-x86_64-apple-macosx26.0-release.exe": ["<focusctl-x86_64-apple-macosx26.0-release.exe>"]
+  "focusctl-x86_64-apple-macosx26.0-release.module": ["<focusctl-x86_64-apple-macosx26.0-release.module>"]
+  "main": ["<focusctl-x86_64-apple-macosx26.0-release.exe>","<focusctl-x86_64-apple-macosx26.0-release.module>"]
+  "test": ["<focusctl-x86_64-apple-macosx26.0-release.exe>","<focusctl-x86_64-apple-macosx26.0-release.module>"]
+default: "main"
+nodes:
+  "/Users/makalin/Public/htdocs/focusctl/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/makalin/Public/htdocs/focusctl/Sources/focusctl/FocusManager.swift","/Users/makalin/Public/htdocs/focusctl/Sources/focusctl/ShortcutsAction.swift","/Users/makalin/Public/htdocs/focusctl/Sources/focusctl/main.swift"]
+    outputs: ["/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/sources"]
+    description: "Write auxiliary file /Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/sources"
+
+  "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/FocusManager.swift.o","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/ShortcutsAction.swift.o","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/main.swift.o"]
+    outputs: ["/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.product/Objects.LinkFileList"
+
+  "/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+
+  "<focusctl-x86_64-apple-macosx26.0-release.exe>":
+    tool: phony
+    inputs: ["/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl"]
+    outputs: ["<focusctl-x86_64-apple-macosx26.0-release.exe>"]
+
+  "<focusctl-x86_64-apple-macosx26.0-release.module>":
+    tool: phony
+    inputs: ["/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/FocusManager.swift.o","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/ShortcutsAction.swift.o","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/main.swift.o","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/Modules/focusctl.swiftmodule"]
+    outputs: ["<focusctl-x86_64-apple-macosx26.0-release.module>"]
+
+  "C.focusctl-x86_64-apple-macosx26.0-release.exe":
+    tool: shell
+    inputs: ["/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/FocusManager.swift.o","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/ShortcutsAction.swift.o","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/main.swift.o","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.product/Objects.LinkFileList"]
+    outputs: ["/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl"]
+    description: "Linking ./.build/x86_64-apple-macosx/release/focusctl"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release","-o","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl","-module-name","focusctl","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-dead_strip","-Xlinker","-alias","-Xlinker","_focusctl_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.product/Objects.LinkFileList","-target","x86_64-apple-macosx12.0","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.focusctl-x86_64-apple-macosx26.0-release.module":
+    tool: shell
+    inputs: ["/Users/makalin/Public/htdocs/focusctl/Sources/focusctl/FocusManager.swift","/Users/makalin/Public/htdocs/focusctl/Sources/focusctl/ShortcutsAction.swift","/Users/makalin/Public/htdocs/focusctl/Sources/focusctl/main.swift","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/sources"]
+    outputs: ["/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/FocusManager.swift.o","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/ShortcutsAction.swift.o","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/main.swift.o","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/Modules/focusctl.swiftmodule"]
+    description: "Compiling Swift Module 'focusctl' (3 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","focusctl","-emit-dependencies","-emit-module","-emit-module-path","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/Modules/focusctl.swiftmodule","-output-file-map","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/output-file-map.json","-whole-module-optimization","-num-threads","12","-c","@/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/focusctl.build/sources","-I","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/Modules","-target","x86_64-apple-macosx12.0","-whole-module-optimization","-num-threads","12","-serialize-diagnostics","-O","-j12","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/makalin/Public/htdocs/focusctl/.build/x86_64-apple-macosx/release/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","focusctl_main","-swift-version","5","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","focusctl"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/makalin/Public/htdocs/focusctl/Sources/","/Users/makalin/Public/htdocs/focusctl/Package.swift","/Users/makalin/Public/htdocs/focusctl/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
